@@ -20,6 +20,8 @@ class SearchBar extends Component {
                     name="searchTerm" 
                     id="searchTerm" 
                     placeholder="Your search term here!" 
+                    value={this.state.term}
+                    onChange={this.handleInputChange}
                     />
                 </FormGroup>
             </Form>
