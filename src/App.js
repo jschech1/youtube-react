@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import axios from 'axios';
+import _ from "lodash";
 import SearchBar from './components/SearchBar';
 import VideoDetail from './components/VideoDetail';
 import VideoList from './components/VideoList';
@@ -41,12 +42,15 @@ class App extends Component {
 
 
   render() {
+
+    const debouncedSearch = _.debounce(this.runSearch, 800)
+
     return (
 
       <Container>
         <Row>
           <Col>
-            <SearchBar/>
+            <SearchBar runSearch={debouncedSearch} />
           </Col>
         </Row>
         <Row>

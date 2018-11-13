@@ -2,11 +2,21 @@ import React, { Component } from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 
 
+const searchTermStyle = {
+    maxWidth: "65.7%"
+}
 
 class SearchBar extends Component {
 
+    
+  
     state = {
         term: ""
+    }
+
+    handleInputChange = event => {
+        this.setState({ term: event.target.value });
+        this.props.runSearch(event.target.value);
     }
 
 
@@ -16,6 +26,7 @@ class SearchBar extends Component {
                 <FormGroup>
                     <Label for="searchTerm" hidden>Search</Label>
                     <Input 
+                    style={searchTermStyle}
                     type="text" 
                     name="searchTerm" 
                     id="searchTerm" 
